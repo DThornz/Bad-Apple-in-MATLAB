@@ -1,0 +1,14 @@
+clear;clc;close all
+%% Random data
+x=0:.01:1;
+yOriginal=x.^2;
+yNoisy1 = yOriginal + 0.1 * rand(1, length(yOriginal));
+yNoisy2 = -yOriginal + 0.1 * rand(1, length(yOriginal));
+plot(x,yNoisy1,'.')
+hold on
+plot(x,yNoisy2,'.')
+legend('Data 1','Data 2')
+
+%% Fmincon
+c1=1;
+c2=1;

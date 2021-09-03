@@ -1,0 +1,26 @@
+clear;clc;close all
+%% Load Video
+v=VideoReader('Bad_Apple.mp4');
+%% Load Audio
+% [y, Fs] = audioread('Bad_Apple_Audio.mp3');
+% sound(y, Fs, 16);
+% pause(2)
+%% Parse Video
+% vout=cell(v.get.Height,v.get.Width,v.NumFrames);
+counter=1;
+while v.hasFrame
+    temp=v.readFrame;
+    temp=im2gray(temp);
+    %     temp=imresize(temp,[62/1.5 43/1.5]);
+    %     temp=imresize(temp,[32+32+10+20+2 77]);
+%     clc
+    temp=imresize(temp,[v.Height/32+24 v.Width/32-1]);
+    clc
+    disp(temp)
+    %     counter=counter+1;
+    %     if counter==1;
+    %         pause(3);
+    %     end
+%     pause(0.01)
+        
+end
